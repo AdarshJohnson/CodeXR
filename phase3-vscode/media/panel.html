@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'none'; img-src data:; 
+                 style-src 'unsafe-inline'; 
+                 script-src 'unsafe-inline' 'self';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeXR Assistant</title>
+  <style>
+    body { font-family: var(--vscode-font-family); padding: 8px; }
+    textarea, select, button { width: 100%; margin-top: 6px; }
+    textarea { min-height: 90px; }
+    .row { display: flex; gap: 8px; }
+    .row > * { flex: 1; }
+    pre { background: var(--vscode-editor-background); padding: 8px; overflow: auto; }
+    .small { opacity: 0.8; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h3>CodeXR Assistant</h3>
+  <div class="row">
+    <label>
+      Mode
+      <select id="mode">
+        <option value="plan">📝 Task Planner</option>
+        <option value="code" selected>💻 Code Generator</option>
+        <option value="debug">🐞 Error Debugger</option>
+      </select>
+    </label>
+  </div>
+  <label>
+    Input
+    <textarea id="text" placeholder="Describe task, code request, or paste an error..."></textarea>
+  </label>
+  <label>
+    Optional Context
+    <textarea id="context" placeholder="Paste docs, constraints, or related code..."></textarea>
+  </label>
+  <div class="row">
+    <button id="run">Generate</button>
+    <button id="insert">Insert Last Snippet</button>
+  </div>
+
+  <div id="out" class="small" style="margin-top:10px">Ready.</div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

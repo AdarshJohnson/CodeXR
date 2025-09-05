@@ -1,0 +1,66 @@
+{
+  "name": "codexr-vscode",
+  "displayName": "CodeXR – AI Assistant",
+  "description": "AR/VR coding copilot with Task Planner, Code Generator, and Error Debugger. Uses Gemini 2.5.",
+  "publisher": "yourname",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:codexr.panel",
+    "onCommand:codexr.setApiKey",
+    "onCommand:codexr.insertSnippet",
+    "onCommand:codexr.explainError"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "codexr.setApiKey",
+        "title": "CodeXR: Set Gemini API Key"
+      },
+      {
+        "command": "codexr.insertSnippet",
+        "title": "CodeXR: Insert Last Snippet"
+      },
+      {
+        "command": "codexr.explainError",
+        "title": "CodeXR: Explain Selected Error"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "codexr.panel",
+          "name": "CodeXR Assistant"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CodeXR",
+      "properties": {
+        "codexr.model": {
+          "type": "string",
+          "default": "gemini-2.5-flash",
+          "description": "Gemini model id (e.g., gemini-2.5-flash or gemini-2.5-pro)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
