@@ -2,7 +2,7 @@ import google.generativeai as genai
 import os
 
 # Configure the Gemini API client using the API key from environment variables.
-genai.configure(api_key=os.getenv("AIzaSyCRg1y68H3cwDRImIIO2gDkbnPbv5RUjco"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Initialize the generative model. Using 'gemini-2.5-flash' for speed.
 model = genai.GenerativeModel("gemini-2.5-flash")
