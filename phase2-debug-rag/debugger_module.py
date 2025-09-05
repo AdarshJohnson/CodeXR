@@ -3,7 +3,7 @@ import os
 import json
 
 # Configure the Gemini API client.
-genai.configure(api_key=os.getenv("AIzaSyCRg1y68H3cwDRImIIO2gDkbnPbv5RUjco"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Initialize the generative model.
 model = genai.GenerativeModel("gemini-2.5-flash")
